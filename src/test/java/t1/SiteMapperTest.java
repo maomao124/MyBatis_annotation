@@ -71,4 +71,30 @@ class SiteMapperTest
 
         sqlSession.close();
     }
+
+    @Test
+    void insert1() throws IOException
+    {
+        //读取配置文件mybatis-config.xml
+        InputStream config = Resources.getResourceAsStream("mybatis-config.xml");
+        //根据配置文件构建SqlSessionFactory
+        SqlSessionFactory sqlSessionFactory = new SqlSessionFactoryBuilder().build(config);
+        //通过SqlSessionFactory创建SqlSession
+        SqlSession sqlSession = sqlSessionFactory.openSession();
+
+        SiteMapper siteMapper = sqlSession.getMapper(SiteMapper.class);
+
+        Site site=new Site();
+        site.setName("百度");
+        site.setUrl("www.baidu.com");
+        site.setAge(15);
+        //site.setId(15);
+        site.setCountry("cn");
+
+        int i = siteMapper.insert1(site);
+        System.out.println(i);
+
+        sqlSession.commit();
+        sqlSession.close();
+    }
 }

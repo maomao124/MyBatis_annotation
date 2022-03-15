@@ -1,9 +1,6 @@
 package t1;
 
-import org.apache.ibatis.annotations.Insert;
-import org.apache.ibatis.annotations.Result;
-import org.apache.ibatis.annotations.Results;
-import org.apache.ibatis.annotations.Select;
+import org.apache.ibatis.annotations.*;
 
 import java.util.List;
 
@@ -37,4 +34,13 @@ public interface SiteMapper
             @Result(column = "createTime", property = "createTime")
     })
     public List<Site> select1();
+
+
+    @Insert("insert into website(id,name,url,age) values(#{id},#{name},#{url},#{age})")
+    @SelectKey(statement = "select last_insert_id()",
+            keyProperty = "id",
+            keyColumn = "id",
+            resultType = Integer.class,
+            before = false)
+    public int insert1(Site site);
 }

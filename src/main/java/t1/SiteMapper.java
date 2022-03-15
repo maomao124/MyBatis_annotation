@@ -2,6 +2,7 @@ package t1;
 
 import org.apache.ibatis.annotations.*;
 
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -43,4 +44,15 @@ public interface SiteMapper
             resultType = Integer.class,
             before = false)
     public int insert1(Site site);
+
+    @Update("update website set name=#{name},age=#{age} where id=#{id}")
+    public int update(Site site);
+
+    @Delete("delete from website where id=#{id}")
+    public int delete(Integer id);
+
+    @Insert("insert into website values (#{id},#{name},#{url},#{age},#{country},#{createTime})")
+    public int insert2(@Param("id") Integer id, @Param("name") String name, @Param("url") String url,
+                       @Param("age") Integer age, @Param("country") String country,
+                       @Param("createTime") Date createTime);
 }

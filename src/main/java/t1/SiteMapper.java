@@ -18,14 +18,31 @@ import java.util.List;
  * Description(描述)： 无
  */
 
+
 public interface SiteMapper
 {
+    /**
+     * Insert int.
+     *
+     * @param site the site
+     * @return the int
+     */
     @Insert("insert into website values (#{id},#{name},#{url},#{age},#{country},#{createTime})")
     public int insert(Site site);
 
+    /**
+     * Select list.
+     *
+     * @return the list
+     */
     @Select("Select * from website")
     public List<Site> select();
 
+    /**
+     * Select 1 list.
+     *
+     * @return the list
+     */
     @Select("Select * from website")
     @Results({
             @Result(id = true, column = "id", property = "id"),
@@ -37,6 +54,12 @@ public interface SiteMapper
     public List<Site> select1();
 
 
+    /**
+     * Insert 1 int.
+     *
+     * @param site the site
+     * @return the int
+     */
     @Insert("insert into website(id,name,url,age) values(#{id},#{name},#{url},#{age})")
     @SelectKey(statement = "select last_insert_id()",
             keyProperty = "id",
@@ -45,12 +68,35 @@ public interface SiteMapper
             before = false)
     public int insert1(Site site);
 
+    /**
+     * Update int.
+     *
+     * @param site the site
+     * @return the int
+     */
     @Update("update website set name=#{name},age=#{age} where id=#{id}")
     public int update(Site site);
 
+    /**
+     * Delete int.
+     *
+     * @param id the id
+     * @return the int
+     */
     @Delete("delete from website where id=#{id}")
     public int delete(Integer id);
 
+    /**
+     * Insert 2 int.
+     *
+     * @param id         the id
+     * @param name       the name
+     * @param url        the url
+     * @param age        the age
+     * @param country    the country
+     * @param createTime the create time
+     * @return the int
+     */
     @Insert("insert into website values (#{id},#{name},#{url},#{age},#{country},#{createTime})")
     public int insert2(@Param("id") Integer id, @Param("name") String name, @Param("url") String url,
                        @Param("age") Integer age, @Param("country") String country,

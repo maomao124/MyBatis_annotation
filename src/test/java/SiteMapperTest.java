@@ -22,9 +22,15 @@ import java.io.InputStream;
  * Description(描述)： 测试类
  */
 
+
 class SiteMapperTest
 {
 
+    /**
+     * Insert.
+     *
+     * @throws IOException the io exception
+     */
     @Test
     void insert() throws IOException
     {

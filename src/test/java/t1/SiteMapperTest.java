@@ -25,9 +25,15 @@ import static org.junit.jupiter.api.Assertions.*;
  * Description(描述)： 测试类
  */
 
+
 class SiteMapperTest
 {
 
+    /**
+     * Select.
+     *
+     * @throws IOException the io exception
+     */
     @Test
     void select() throws IOException
     {
@@ -50,6 +56,11 @@ class SiteMapperTest
         sqlSession.close();
     }
 
+    /**
+     * Select 1.
+     *
+     * @throws IOException the io exception
+     */
     @Test
     void select1() throws IOException
     {
@@ -72,6 +83,11 @@ class SiteMapperTest
         sqlSession.close();
     }
 
+    /**
+     * Insert 1.
+     *
+     * @throws IOException the io exception
+     */
     @Test
     void insert1() throws IOException
     {
@@ -98,6 +114,11 @@ class SiteMapperTest
         sqlSession.close();
     }
 
+    /**
+     * Update.
+     *
+     * @throws IOException the io exception
+     */
     @Test
     void update() throws IOException
     {
@@ -124,6 +145,11 @@ class SiteMapperTest
         sqlSession.close();
     }
 
+    /**
+     * Delete.
+     *
+     * @throws IOException the io exception
+     */
     @Test
     void delete() throws IOException
     {
@@ -150,6 +176,11 @@ class SiteMapperTest
         sqlSession.close();
     }
 
+    /**
+     * Insert 2.
+     *
+     * @throws IOException the io exception
+     */
     @Test
     void insert2() throws IOException
     {
